@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Papers Scissorsss</title>
+    <script>
+        let userScore = 0;
+        let computerScore = 0;
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomNumber = Math.floor(Math.random() * 3);
+            return choices[randomNumber];
+        }
+
+        function getUserChoice() {
+            let userChoice = prompt('Do you choose rock, paper or scissors?');
+            userChoice = lowerCaseWords(userChoice);
+            if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+                return userChoice;
+            } else {
+                console.log('Error!');
+            }
+        }
+
+        function lowerCaseWords(words) {
+            return words.toLowerCase();
+        }
+
+        function playRound(roundTour) {
+            console.log(`Round ${roundTour + 1}`);
+            const userChoice = getUserChoice();
+            const computerChoice = getComputerChoice();
+            if (userChoice === computerChoice) {
+                 console.log ('It\'s a tie!');
+            }
+            if (userChoice === 'rock') {
+                if (computerChoice === 'paper') {
+                    computerScore++;
+                    console.log( 'This round computer wins!');
+                } else {
+                    userScore++;
+                    console.log( 'This round user wins!');
+                }
+            }
+            if (userChoice === 'paper') {
+                if (computerChoice === 'scissors') {
+                    computerScore++;
+                    console.log( 'This round computer wins!');
+                } else {
+                    userScore++;
+                    console.log( 'This round user wins!');
+                }
+            }
+            if (userChoice === 'scissors') {
+                if (computerChoice === 'rock') {
+                    computerScore++;
+                    console.log( 'This round computer wins!');
+                } else {
+                    userScore++;
+                    console.log('This round user wins!');
+                }
+            }
+        }
+        function playGame() {
+            for (let i = 0; i < 5; i++) {
+                playRound(i);
+            }
+            console.log('Game over!');
+            if (userScore > computerScore) {
+                console.log('User wins!');
+            } else if (userScore < computerScore) {
+                console.log('Computer wins!');
+            } else {
+                console.log('It\'s a tie!');
+            }
+        }
+        playGame();
+
+
+        </script>
+
+</head>
+<body>
+        <h1>Play Rock Paper Scissors!vfdfv</h1>
+
+</body>
+</html>
